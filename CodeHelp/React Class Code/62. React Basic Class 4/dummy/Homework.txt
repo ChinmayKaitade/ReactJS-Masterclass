@@ -1,0 +1,2 @@
+- Window Size is: 
+- Print it on window as same as in dev tools responsive tool in inspect section

@@ -1,0 +1,54 @@
+import React from "react";
+import { FcLike } from "react-icons/fc";
+
+function Card({ course }) {
+  return (
+    <div>
+      <div>
+        <img src={course.image.url}></img>
+
+        <div>
+          <button>
+            <FcLike fontSize="1.75rem" />
+          </button>
+        </div>
+      </div>
+
+      <div>
+        <p>{course.title}</p>
+        <p>{course.description}</p>
+      </div>
+    </div>
+  );
+}
+
+export default Card;
+
+
+Cards.........
+import React from "react";
+import Card from "./Card";
+
+function Cards({ courses }) {
+  let allCourses = [];
+
+  // returns you a list of all courses received from the API response
+  const getCourses = () => {
+    Object.values(courses).forEach((courseCategory) => {
+      courseCategory.forEach((course) => {
+        allCourses.push(course);
+      });
+    });
+    return allCourses;
+  };
+
+  return (
+    <div>
+      {getCourses().map((course) => {
+        <Card course={course} />;
+      })}
+    </div>
+  );
+}
+
+export default Cards;
